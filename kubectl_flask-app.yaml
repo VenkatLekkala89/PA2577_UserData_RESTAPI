@@ -32,4 +32,7 @@ spec:
             - containerPort: 4000
           env:
             - name: DB_URL
-              value: "postgresql://postgres:postgres@flask-db-service:5432/postgres"
+              valueFrom:
+                secretKeyRef:
+                  name: secret-basic
+                  key: DB_URL
